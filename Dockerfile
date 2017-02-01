@@ -37,6 +37,7 @@ RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
 EXPOSE 9050
 
 ADD container-files/script/* /tmp/script/
+RUN chmod +x /tmp/script/bootstrap.sh
 
 # put customized config and code files to /data
 
