@@ -12,24 +12,24 @@ RUN yum-config-manager --enable remi
 RUN yum-config-manager --enable remi-php71
 RUN yum install -y msodbcsql \
                php-fpm \ 
-			   php-cli \
-			   php-common \
-			   php-gd \
-			   php-imap \
-			   php-intl \
-			   php-json \
-			   php-ldap \
-			   php-mbstring \
-			   php-mcrypt \
-			   php-opcache \
-			   php-pdo \
-			   php-pecl-zip \
-			   php-snmp \
-			   php-soap \
-			   php-sqlsrv \
-			   php-xml \
-			   php-mysql \
-			   php-pecl-uuid
+               php-cli \
+               php-common \
+               php-gd \
+               php-imap \
+               php-intl \
+               php-json \
+               php-ldap \
+               php-mbstring \
+               php-mcrypt \
+               php-opcache \
+               php-pdo \
+               php-pecl-zip \
+               php-snmp \
+               php-soap \
+               php-sqlsrv \
+               php-xml \
+               php-mysql \
+               php-pecl-uuid
 RUN yum clean all 
  
 RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
