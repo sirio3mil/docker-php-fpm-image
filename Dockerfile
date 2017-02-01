@@ -1,11 +1,11 @@
 FROM centos:latest
 ENV container docker
-MAINTAINER "Reynier de la Rosa" <reynier.delarosa@overon.es>
+MAINTAINER "Reynier de la Rosa" <reynier.delarosa@outlook.es>
 
 RUN yum -y update
 RUN yum -y install epel-release \
                    wget \
-				   yum-utils
+                   yum-utils
 RUN wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh remi-release-7*.rpm
 RUN yum-config-manager --enable remi
