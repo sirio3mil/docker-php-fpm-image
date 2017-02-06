@@ -29,7 +29,8 @@ RUN yum install -y msodbcsql \
                php-sqlsrv \
                php-xml \
                php-mysql \
-               php-pecl-uuid
+               php-pecl-uuid \
+               mediainfo
 RUN yum clean all 
  
 RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
