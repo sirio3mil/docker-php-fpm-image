@@ -15,7 +15,6 @@ RUN yum install -y msodbcsql \
                php-cli \
                php-common \
                php-gd \
-               php-imap \
                php-intl \
                php-json \
                php-ldap \
@@ -24,7 +23,6 @@ RUN yum install -y msodbcsql \
                php-opcache \
                php-pdo \
                php-pecl-zip \
-               php-snmp \
                php-soap \
                php-sqlsrv \
                php-xml \
