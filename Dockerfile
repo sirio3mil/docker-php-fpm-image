@@ -28,6 +28,7 @@ RUN yum install -y msodbcsql \
                php-xml \
                php-mysql \
                php-pecl-uuid \
+               php-bcmath \
                mediainfo \
                openldap-clients
 RUN yum clean all 
