@@ -26,7 +26,7 @@ RUN yum install -y msodbcsql \
                php-soap \
                php-sqlsrv \
                php-xml \
-               php-mysql \
+               php-mysqlnd \
                php-pecl-uuid \
                php-bcmath \
                mediainfo \
