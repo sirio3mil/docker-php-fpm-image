@@ -30,7 +30,11 @@ RUN yum install -y msodbcsql \
                php-pecl-uuid \
                php-bcmath \
                mediainfo \
-               openldap-clients
+               openldap-clients \
+               php-mhash \
+               php-xsl \
+               php-pear \
+               php-soap
 RUN yum clean all 
  
 RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
