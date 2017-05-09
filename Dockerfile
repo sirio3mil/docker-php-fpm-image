@@ -11,6 +11,7 @@ RUN rpm -Uvh remi-release-7*.rpm
 RUN yum-config-manager --enable remi
 RUN yum-config-manager --enable remi-php71
 RUN yum install -y msodbcsql \
+               gettext \ 
                php-fpm \ 
                php-cli \
                php-common \
