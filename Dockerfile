@@ -8,9 +8,9 @@ RUN yum -y install epel-release \
                    yum-utils
 RUN wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh remi-release-7*.rpm
-RUN yum-config-manager --enable remi-php71
+RUN yum-config-manager --enable remi-php72
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo
-RUN ACCEPT_EULA=Y yum install -y msodbcsql mssql-tools unixODBC-devel
+RUN ACCEPT_EULA=Y yum install -y msodbcsql msodbcsql17 mssql-tools unixODBC-devel
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 RUN source ~/.bashrc
@@ -28,7 +28,6 @@ RUN yum install -y gettext \
                php-pdo \
                php-pecl-zip \
                php-soap \
-               php-sqlsrv \
                php-xml \
                php-mysqlnd \
                php-pecl-uuid \
@@ -38,7 +37,13 @@ RUN yum install -y gettext \
                php-mhash \
                php-xsl \
                php-pear \
-               php-soap
+               php-soap \
+               php-pecl-mongodb \
+               php-pecl-couchbase \
+               php-pecl-apcu \
+               php-pdo-dblib \
+               freetds \
+               php-sqlsrv
 RUN yum clean all 
  
 RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
