@@ -9,6 +9,7 @@ RUN yum -y install epel-release \
 RUN wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 RUN rpm -Uvh remi-release-7*.rpm
 RUN yum-config-manager --enable remi-php72
+RUN yum-config-manager --enable remi-php72-test
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo
 RUN ACCEPT_EULA=Y yum install -y msodbcsql msodbcsql17 mssql-tools unixODBC-devel
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
