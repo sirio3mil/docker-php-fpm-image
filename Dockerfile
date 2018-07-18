@@ -44,7 +44,8 @@ RUN yum install -y gettext \
                php-pecl-apcu \
                php-pdo-dblib \
                freetds \
-               php-sqlsrv
+               php-sqlsrv \
+               php-pecl-memcached
 RUN yum clean all 
  
 RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
