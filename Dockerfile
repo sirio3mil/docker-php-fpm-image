@@ -46,6 +46,7 @@ RUN yum install -y gettext \
                freetds \
                php-sqlsrv \
                php-pecl-memcached \
+               php-pecl-gearman \
                php-gmp
 RUN yum clean all 
  
