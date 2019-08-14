@@ -41,6 +41,7 @@ RUN yum install -y gettext \
                php-pear \
                php-soap \
                php-sqlsrv \
+               php-tidy \
                php-pecl-uuid \
                php-pecl-zip \
                php-pecl-mongodb \
