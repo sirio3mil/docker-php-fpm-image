@@ -6,7 +6,7 @@ RUN yum -y update
 RUN yum -y install epel-release \
                    wget \
                    yum-utils
-RUN wget http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+RUN wget https://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN rpm -Uvh remi-release-7*.rpm
 RUN yum-config-manager --enable remi-php73
 RUN yum-config-manager --enable remi-php73-test
@@ -48,11 +48,15 @@ RUN yum install -y gettext \
                php-pecl-apcu \
                php-pecl-memcached \
                php-pecl-gearman \
-               php-pecl-mailparse
+               php-pecl-mailparse \
+               php-pecl-imagick \
+               php-pecl-xdebug \
+               unzip
 RUN yum clean all 
  
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
+
 RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
  
 EXPOSE 9050
