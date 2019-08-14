@@ -16,6 +16,9 @@ RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 RUN source ~/.bashrc
 RUN yum install -y gettext \ 
+               mediainfo \
+               openldap-clients \
+               freetds \
                php-fpm \ 
                php-cli \
                php-common \
@@ -27,29 +30,29 @@ RUN yum install -y gettext \
                php-mcrypt \
                php-opcache \
                php-pdo \
-               php-pecl-zip \
+               php-pdo-dblib \
                php-soap \
                php-xml \
                php-mysqlnd \
-               php-pecl-uuid \
+               php-gmp \
                php-bcmath \
-               mediainfo \
-               openldap-clients \
                php-mhash \
                php-xsl \
                php-pear \
                php-soap \
+               php-sqlsrv \
+               php-pecl-uuid \
+               php-pecl-zip \
                php-pecl-mongodb \
                php-pecl-couchbase \
                php-pecl-apcu \
-               php-pdo-dblib \
-               freetds \
-               php-sqlsrv \
                php-pecl-memcached \
                php-pecl-gearman \
-               php-gmp
+               php-pecl-mailparse
 RUN yum clean all 
  
+RUN curl -sS https://getcomposer.org/installer | php
+RUN mv composer.phar /usr/local/bin/composer
 RUN ln -sf /dev/stderr /var/log/php-fpm/error.log
  
 EXPOSE 9050
