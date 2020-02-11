@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:8
 ENV container docker
 MAINTAINER "Reynier de la Rosa" <reynier.delarosa@outlook.es>
 
