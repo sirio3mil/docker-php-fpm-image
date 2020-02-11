@@ -10,7 +10,8 @@ RUN dnf module -y install php:remi-7.4
 RUN curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
 ENV ACCEPT_EULA=Y
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
-RUN dnf --enablerepo=remi-modular-test -y install msodbcsql17 \
+RUN dnf --enablerepo=PowerTools install tinyxml2
+RUN dnf -y install msodbcsql17 \
                mssql-tools \
                unixODBC-devel \
                gettext \
@@ -19,8 +20,8 @@ RUN dnf --enablerepo=remi-modular-test -y install msodbcsql17 \
                freetds \
                mongo-c-driver \
                libbson \
-               tinyxml2 \
-               php-fpm \
+               unzip
+RUN RUN dnf --enablerepo=remi-modular-test -y install php-fpm \
                php-cli \
                php-common \
                php-gd \
@@ -32,8 +33,10 @@ RUN dnf --enablerepo=remi-modular-test -y install msodbcsql17 \
                php-opcache \
                php-pdo \
                php-pdo-dblib \
+               php-pdo-sqlsrv \
                php-soap \
                php-xml \
+               php-sqlsrv \
                php-mysqlnd \
                php-gmp \
                php-bcmath \
@@ -41,7 +44,6 @@ RUN dnf --enablerepo=remi-modular-test -y install msodbcsql17 \
                php-xsl \
                php-pear \
                php-soap \
-               php-sqlsrv \
                php-tidy \
                php-pecl-uuid \
                php-pecl-zip \
@@ -52,8 +54,7 @@ RUN dnf --enablerepo=remi-modular-test -y install msodbcsql17 \
                php-pecl-gearman \
                php-pecl-mailparse \
                php-pecl-imagick \
-               php-pecl-xdebug \
-               unzip
+               php-pecl-xdebug
  
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
