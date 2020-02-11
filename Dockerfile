@@ -2,20 +2,17 @@ FROM centos:8
 ENV container docker
 MAINTAINER "Reynier de la Rosa" <reynier.delarosa@outlook.es>
 
-RUN yum -y update
-RUN yum -y install epel-release \
-                   wget \
-                   yum-utils
-RUN wget https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-RUN rpm -Uvh remi-release-8*.rpm
-RUN yum-config-manager --enable remi-php74
-RUN yum-config-manager --enable remi-php74-test
+RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+RUN dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+RUN dnf -y install yum-utils
+RUN dnf module reset php
+RUN dnf module  -y install php:remi-7.4
 RUN curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
 RUN ACCEPT_EULA=Y yum install -y msodbcsql msodbcsql17 mssql-tools unixODBC-devel
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 RUN source ~/.bashrc
-RUN yum install -y gettext \ 
+RUN dnf --enablerepo=remi-modular-test  -y install gettext \ 
                mediainfo \
                openldap-clients \
                freetds \
@@ -53,7 +50,6 @@ RUN yum install -y gettext \
                php-pecl-imagick \
                php-pecl-xdebug \
                unzip
-RUN yum clean all 
  
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
