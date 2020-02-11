@@ -10,8 +10,7 @@ RUN dnf module -y install php:remi-7.4
 RUN curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
 ENV ACCEPT_EULA=Y
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
-RUN dnf --enablerepo=remi-modular-test -y install msodbcsql \
-               msodbcsql17 \
+RUN dnf --enablerepo=remi-modular-test -y install msodbcsql17 \
                mssql-tools \
                unixODBC-devel \
                gettext \
