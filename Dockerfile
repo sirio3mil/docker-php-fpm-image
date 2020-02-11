@@ -4,7 +4,6 @@ MAINTAINER "Reynier de la Rosa" <reynier.delarosa@outlook.es>
 
 RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-RUN dnf -y install yum-utils
 RUN dnf module reset php
 RUN dnf module -y install php:remi-7.4
 RUN curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
