@@ -6,7 +6,8 @@ RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.n
 RUN dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 RUN dnf module reset php
 RUN dnf module -y install php:remi-7.4
-RUN curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
+RUN dnf -y install dnf-plugins-core
+RUN dnf config-manager --add-repo https://packages.microsoft.com/config/rhel/8/prod.repo
 ENV ACCEPT_EULA=Y
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
 RUN dnf --enablerepo=PowerTools -y install tinyxml2
