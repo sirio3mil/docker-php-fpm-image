@@ -21,7 +21,7 @@ RUN dnf -y install msodbcsql17 \
                mongo-c-driver \
                libbson \
                unzip
-RUN RUN dnf --enablerepo=remi-modular-test -y install php-fpm \
+RUN dnf --enablerepo=remi-modular-test -y install php-fpm \
                php-cli \
                php-common \
                php-gd \
