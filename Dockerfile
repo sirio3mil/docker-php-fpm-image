@@ -33,7 +33,6 @@ RUN dnf --enablerepo=remi-modular-test -y install php-fpm \
                php-opcache \
                php-pdo \
                php-pdo-dblib \
-               php-pdo-sqlsrv \
                php-soap \
                php-xml \
                php-sqlsrv \
