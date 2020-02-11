@@ -17,6 +17,8 @@ RUN dnf --enablerepo=remi-modular-test -y install msodbcsql17 \
                mediainfo \
                openldap-clients \
                freetds \
+               mongo-c-driver \
+               libbson \
                php-fpm \ 
                php-cli \
                php-common \
