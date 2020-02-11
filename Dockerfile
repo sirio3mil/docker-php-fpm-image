@@ -11,6 +11,7 @@ RUN curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos
 ENV ACCEPT_EULA=Y
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
 RUN dnf --enablerepo=PowerTools -y install tinyxml2
+RUN dnf --enablerepo=remi -y install libbson mongo-c-driver
 RUN dnf -y install msodbcsql17 \
                mssql-tools \
                unixODBC-devel \
@@ -18,8 +19,6 @@ RUN dnf -y install msodbcsql17 \
                mediainfo \
                openldap-clients \
                freetds \
-               mongo-c-driver \
-               libbson \
                unzip
 RUN dnf --enablerepo=remi-modular-test -y install php-fpm \
                php-cli \
