@@ -6,13 +6,15 @@ RUN dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.n
 RUN dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 RUN dnf -y install yum-utils
 RUN dnf module reset php
-RUN dnf module  -y install php:remi-7.4
+RUN dnf module -y install php:remi-7.4
 RUN curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
-RUN ACCEPT_EULA=Y yum install -y msodbcsql msodbcsql17 mssql-tools unixODBC-devel
-RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
-RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
-RUN source ~/.bashrc
-RUN dnf --enablerepo=remi-modular-test  -y install gettext \ 
+ENV ACCEPT_EULA=Y
+ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
+RUN dnf --enablerepo=remi-modular-test -y install msodbcsql \
+               msodbcsql17 \
+               mssql-tools \
+               unixODBC-devel \
+               gettext \
                mediainfo \
                openldap-clients \
                freetds \
