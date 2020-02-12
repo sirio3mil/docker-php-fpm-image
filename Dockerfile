@@ -19,7 +19,8 @@ RUN dnf -y install msodbcsql17 \
                mediainfo \
                openldap-clients \
                freetds \
-               unzip
+               unzip \
+               git
 RUN dnf --enablerepo=remi-modular-test -y install php-fpm \
                php-cli \
                php-common \
