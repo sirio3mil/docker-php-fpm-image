@@ -45,6 +45,7 @@ EXPOSE 9050
 
 ADD container-files/script/* /tmp/script/
 RUN chmod +x /tmp/script/bootstrap.sh
+RUN mkdir -p /run/php-fpm
 
 # put customized config and code files to /data
 
