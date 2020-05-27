@@ -11,14 +11,10 @@ RUN dnf config-manager --add-repo https://packages.microsoft.com/config/rhel/8/p
 ENV ACCEPT_EULA=Y
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
 RUN dnf --enablerepo=PowerTools -y install tinyxml2
-RUN dnf --enablerepo=remi -y install libbson mongo-c-driver
 RUN dnf -y install msodbcsql17 \
                mssql-tools \
                unixODBC-devel \
                gettext \
-               mediainfo \
-               openldap-clients \
-               freetds \
                unzip \
                git
 RUN dnf --enablerepo=remi-modular-test -y install php-fpm \
@@ -27,31 +23,16 @@ RUN dnf --enablerepo=remi-modular-test -y install php-fpm \
                php-gd \
                php-intl \
                php-json \
-               php-ldap \
                php-mbstring \
                php-mcrypt \
                php-opcache \
                php-pdo \
-               php-pdo-dblib \
-               php-soap \
                php-xml \
                php-sqlsrv \
-               php-mysqlnd \
-               php-gmp \
                php-bcmath \
-               php-mhash \
-               php-xsl \
-               php-pear \
-               php-soap \
-               php-tidy \
                php-pecl-uuid \
                php-pecl-zip \
-               php-pecl-mongodb \
-               php-pecl-couchbase \
-               php-pecl-apcu \
                php-pecl-memcached \
-               php-pecl-gearman \
-               php-pecl-mailparse \
                php-pecl-imagick \
                php-pecl-xdebug
  
