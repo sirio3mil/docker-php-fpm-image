@@ -10,7 +10,7 @@ RUN dnf -y install dnf-plugins-core
 RUN dnf config-manager --add-repo https://packages.microsoft.com/config/rhel/8/prod.repo
 ENV ACCEPT_EULA=Y
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
-RUN dnf --enablerepo=PowerTools -y install tinyxml2
+RUN dnf --enablerepo=powertools -y install tinyxml2
 RUN dnf --enablerepo=remi -y install libbson mongo-c-driver
 RUN dnf -y install msodbcsql17 \
                mssql-tools \
