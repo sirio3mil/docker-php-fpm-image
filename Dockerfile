@@ -28,6 +28,7 @@ RUN dnf --enablerepo=powertools -y install tinyxml2 \
                php-pecl-uuid \
                php-pecl-zip \
                php-pecl-memcached \
+               php-pecl-xdebug \
                php-pecl-imagick \
     && dnf clean all \
     && rm -rf /var/cache/yum \
