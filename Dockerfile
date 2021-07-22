@@ -10,7 +10,7 @@ RUN dnf -y install epel-release \
 ENV ACCEPT_EULA=Y
 ENV PATH=${PATH}:/opt/mssql/bin:/opt/mssql-tools/bin
 RUN dnf --enablerepo=powertools -y install tinyxml2 \
-    && dnf --enablerepo=remi-modular-test -y install msodbcsql17 \
+    && dnf -y install msodbcsql17 \
                mssql-tools \
                unixODBC-devel \
                gettext \
